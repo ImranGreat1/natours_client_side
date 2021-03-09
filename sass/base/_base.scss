@@ -1,0 +1,51 @@
+/*
+    For universal selecting, it is also best practical to add
+    pseudo elements to avoid unexpected or weird behaviour
+*/
+*,
+*::after,
+*::before {
+    padding: 0;
+    margin: 0;
+    /* box-sizing best practice. set on the body and inherit using the universal 
+    selector*/
+    box-sizing: inherit;
+}
+
+
+html {
+    /* Equals = 10px. 62.5% of the default browser font-size which si 16px.
+    This give the user the ability to change the default size in the settings*/
+    /* font-size: 62.5%; */
+    font-size: 62.5%;
+
+    @include respond(tab-landscape) {
+        font-size: 56.25%;  //9px 9/16px = 56.25%
+    }
+
+    @include respond(tab-portrait) {
+        font-size: 50%;   //8px 8/16 == 50%
+    }
+    
+
+    @include respond(big-desktop) {
+        font-size: 70%;  //12px 12/16 == 70%
+    }
+}
+
+
+body {
+    padding: 2rem;
+    box-sizing: border-box;
+
+    @include respond(tab-portrait) {
+        padding: 0;
+    }
+}
+
+::selection {
+    background-color: $color-primary;
+    color: $color-white;
+}
+
+

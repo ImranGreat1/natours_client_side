@@ -1,0 +1,98 @@
+.story {
+    width: 75%;
+    margin: 0 auto;
+    background-color: rgba($color-white, .6);
+    padding: 6rem;
+    padding-left: 9rem;
+    transform: skewX(-12deg);
+    border-radius: 3px;
+    box-shadow: 0 3rem 6rem rgba($color-black, .1);
+    
+    @include respond(tab-portrait) {
+        width: 100%;
+        padding: 3rem;
+        padding-left: 6rem;
+        transform: skewX(0);
+    }
+
+    @include respond(phone) {
+        width: 100%;
+        padding: 3rem;
+        transform: skewX(0);
+    }
+
+    &__shape {
+        width: 16rem;
+        height: 16rem;
+        float: left;
+        -webkit-shape-outside: circle(50% at 50% 50%);
+        shape-outside: circle(50% at 50% 50%);
+        transform: translateX(-3rem) skewX(12deg);
+        position: relative;
+        overflow: hidden;
+        border-radius: 50%;
+
+        @supports (clip-path: circle(50% at 50% 50%)) or (-webkit-clip-path: circle(50% at 50% 50%)) {
+            -webkit-clip-path: circle(50% at 50% 50%);
+            clip-path: circle(50% at 50% 50%);
+            border-radius: 0;
+
+        }
+
+        @include respond(tab-portrait) {
+            transform: translateX(-3rem) skewX(0);
+        }
+
+        @include respond(phone) {
+            width: 13rem;
+            height: 13rem;
+            float: none;
+            margin-bottom: 2rem;
+            transform: translateX(0) skewX(0);
+        }
+    }
+
+    &__img {
+        height: 100%;
+        transform: translate(-4rem) scale(1.4);
+        backface-visibility: hidden;
+        transition: all .5s;
+    }
+
+    &__caption {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, 20%);
+        opacity: 0;
+        color: $color-white;
+        font-size: 1.7rem;
+        text-align: center;
+        transition: all .5s;
+        backface-visibility: hidden;
+    }
+
+
+
+    &__text {
+        transform: skewX(12deg);
+
+        @include respond(tab-portrait) {
+            transform: skewX(0);
+        }
+    }
+
+
+    &:hover &__caption{
+        transform: translate(-50%, -50%);
+        opacity: 1;
+    }
+
+    &:hover &__img {
+         transform: translate(-4rem) scale(1);
+         filter: blur(6px);
+    }
+
+
+
+}

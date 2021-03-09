@@ -1,0 +1,90 @@
+.section-about {
+    background-color: $color-grey-light-1;
+     /*
+        95vh - 75vh = 20vh
+    */
+    margin-top: -20vh;
+    padding: 25rem 0;
+
+    @include respond(tab-portrait) {
+        padding: 22rem 0 20rem 0;
+    }
+}
+
+
+.section-features {
+    background-image: linear-gradient(to right bottom,
+        rgba($color-primary-light, 0.8),
+        rgba($color-primary-dark, 0.8)),
+    url('/img/nat-4.jpg');
+    background-size: cover;
+    padding: 20rem 0;
+    transform: skewY(-7deg) translateY(-10rem);
+
+    & > * {
+        transform: skewY(7deg);
+    }
+
+    @include respond(tab-portrait) {
+        padding: 10rem 0;
+    }
+}
+
+
+.section-tours {
+    padding: 20rem 0 10rem 0;
+    background-color: $color-grey-light-1;
+    margin-top: -20rem;
+
+    @include respond(tab-portrait) {
+        padding: 17rem 0 10rem 0 ;
+    }
+}
+
+.section-stories {
+    position: relative;
+    padding: 10rem 0;
+
+    @include respond(tab-portrait) {
+        padding: 5rem 0;
+    }
+};
+
+
+.section-book {
+    background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
+    padding: 10rem 0;
+
+    @include respond(tab-portrait) {
+        padding: 5rem 0;
+    }
+}
+
+.book {
+    background-image: linear-gradient(105deg, rgba($color-white, .9) 0%, rgba($color-white, .9) 50%, transparent 50%) , url(../img/nat-10.jpg);
+    background-size: cover;
+    overflow: hidden;
+    
+    &__form {
+        width: 50%;
+        padding: 6rem;
+
+        @include respond(tab-landscape) {
+            width: 65%;
+        }
+
+        @include respond(tab-portrait) {
+            width: 100%;
+        }
+    }
+
+    @include respond(tab-landscape) {
+         background-image: linear-gradient(105deg, rgba($color-white, .9) 0%, rgba($color-white, .9) 65%, transparent 65%),
+         url(../img/nat-10.jpg);
+    }
+
+    @include respond(tab-portrait) {
+        background-image: linear-gradient(105deg, rgba($color-white, .9) 0%, rgba($color-white, .9) 100%),
+        url(../img/nat-10.jpg);
+    }
+}

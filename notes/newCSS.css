@@ -1,0 +1,198 @@
+.test {
+    /* 
+        To not show the back of an element in a situation where the back 
+        should be visible such as rotating the element.
+    */
+    backface-visibility: none;
+
+
+    /* Set linear gradient to appear behind text using the following trick */
+    background-image: linear-gradient(to right, red, green);
+    display: inline-block;
+    /* set background to occupy only where text are,
+    meaining only behind the text*/ 
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+
+    /* box-shadow/text-shadow : x-axis y-axis blur-radius color */
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, .15);
+
+
+    /* 
+    Clip-path for making shapes based on 4 different co-ordinates
+    polygon(top-left, top-right, bottom-right, bottom-left)
+    first value is on the x-axis while second value is on the y-axis(epsilon).
+    */
+    clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
+    /* Triangle exercise with clip-path */
+    /* 
+    clip-path: polygon(50% 0, 50% 0, 0 100%, 100% 100%);
+    clip-path: polygon(50% 0, 50% 0, 100% 100%, 0 100%);
+    clip-path: polygon(50% 0, 0 100%, 100% 100%); 
+    */
+
+    /* How to center an element within another element. */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    /* Centering an element using the position top,
+    left and transform property. The position top,
+    left moves an element relative to the size of the parent of that element. The transform property,
+    translate moves an element relative to the size of that element. */
+
+
+
+    /* This makes a tranform property or animation look very drammatic, the lower
+    the value the higher the more drammatic it become.  */
+    perspective: 100rem;
+
+
+    /* Trick for adding a background-color on top of a background-image */
+    background-image: linear-gradient(to right bottom,
+        rgba(0, 0 , 0, 0.8),
+        rgba(255, 255, 255, 0.8)),
+    url('/img/nat-4.jpg');
+
+    
+    /* Negative can be set on margin to move element to upward or backward */
+    margin-top: -10rem;
+
+
+    /* Blend a background-image and background-color using linear gradient for the background-color */
+    background-blend-mode: screen;
+
+    /* Apply the same css to the element that broke into new line. It will treat it like a new element
+    with those defined styles */
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone;
+
+    /* The following declarations create a circle shape */
+    /* Shape outside is like a virtual shape that allow floated items to contain the shaped area but
+    visually it still maintains it original shape. clip-path is what does the cutting of the shape.
+    We usually use shape-outside to make floated text to wrap around a certain shape. 
+    */
+    -webkit-shape-outside: circle(50% at 50% 50%);
+    shape-outside: circle(50% at 50% 50%);
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+
+    /* 
+    filter has many options and blur is just one of them. The higher the pixel the blurer the element.
+    other options:
+    brightness(%) 0 will make it completely black. Accetp values above 100%.
+    contrast(%)  0 will make it completely black. Accetp values above 100%.
+    grayscale(%)  100% will make the image completely gray
+    */
+    filter: blur(6px);
+
+    /* Works like background-size:cover; for images but this one applied to videos and images. In our case here we 
+    used it for video but we can also use it for images. object-fit defines how a video or an image element should
+    reside in their container. cover means to occupy the whole space and clip out areas that do not fit*/
+    object-fit: cover;
+
+    /* 
+        Using skew to make a slant square shape, the children element will also inherit that skew property.
+        The trick is to make all direct children of that skewed element to skew to the opposite direction.
+        In this case give them the skew value of 12deg.
+    */
+    transform: skewX(-12deg);
+
+    /*
+        Using linear gradient with degrees and percentages to create a solid-color gradient
+        1. 105deg ==> is the direction of the gradient
+        2. rgba(#fff, .9) 0%  ==> at 0% the color should be white
+        3. rgba(#fff, .9) 50% ==> at 50% the color should be white
+        4. transparent 50% ==> from 50% the color should be transparent.
+    */
+    background-image: linear-gradient(105deg, rgba(#fff, .9) 0%, rgba(#fff, .9) 50%, transparent 50%),
+    url(../img/nat-10.jpg);
+
+    /* 
+        Input element font stylings doesn't automatically inherit the global font stylings that
+        we defined, we have to do it manually like in the above properties.
+    */
+    font-size: 1.5rem;
+    font-family: inherit;
+    color: inherit;
+
+
+    /* 
+        Some useful Pseudo classes and elements
+        1. The invalid pseudo class, this class is added when html validate our form fields.
+        Such as adding the required to a field or making an input with type equal email.
+        We can track the stage of this validations and use it.
+        e.g
+        // We are targeting the invalid stage of the input, based on that we can add any style want.
+        input:focus:invalid {
+            
+        }
+
+        // When we focus on an item
+        input:focus {
+
+        }
+
+        // When the input placeholder is still visible
+        input:placeholder-shown {
+
+        }
+
+        // Stage when a radio button is checked
+        input:checked {
+
+        }
+
+        // Pseudo element
+
+        // We are targeting the placeholder that sits inside all text input such as text, email etc.
+        input::input-placeholder {
+
+        }
+
+        // Others
+        &__input:placeholder-shown + &__label
+        plus sign + => is the adjacent sibling selector, the immediately adjacent sibling.
+
+        tilde sign ~ => is the general sibling selector
+
+    */
+
+    /* 
+        Radial gradient: This works just like linear gradient but instead of going from one
+        side to the other, this one starts from the middle of the element and goes all the
+        way to the outside directions.
+    */
+    background-image: radial-gradient(white, black);
+
+
+    /* 
+        Cubic-bezier: for custom timing functions
+        // websites to generate custom timing functions
+        1. easings.net
+        2. cubic-bezier.com
+    */
+    transition: transform .8s cubic-bezier(0.86, 0, 0.07, 1);
+
+    /* 
+        Transform-origin: This specifies where a transform animation should start e.g
+        like from where a rotate transformation should start. If this property is not
+        set, by default it will be center.
+    */
+    transform-origin: left;
+
+
+    /* Trick to animate a hidden element */
+    opacity: 0;
+    visibility: hidden;
+    /* Add some cool styles such as blur, brightness, sepia to the element that the target
+    element sits on */
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+
+   
+

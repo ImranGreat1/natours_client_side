@@ -1,0 +1,1 @@
+1. Use Javascript to close pop-ups when we click outside of the pop-up box

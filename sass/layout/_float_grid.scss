@@ -1,0 +1,76 @@
+.row {
+    max-width: $grid-width;
+    margin: 0 auto;
+
+    @include respond(tab-landscape) {
+        padding: 0 2rem;
+    }
+
+    @include respond(tab-portrait) {
+        max-width: $grid-width-medium;
+    }
+
+    @include respond(phone) {
+        max-width: $grid-width-small;
+        margin: 0 auto;
+    }
+
+    
+    
+    &:not(:last-child) {
+        margin-bottom: $gutter-vertical;
+
+        @include respond(tab-portrait) {
+            margin-bottom: $gutter-vertical-small;
+        }
+    }
+
+    [class^="col-"] {
+        float: left;
+
+        &:not(:last-child) {
+            margin-right: $gutter-horizontal;
+
+            @include respond(tab-portrait) {
+                margin-right: 0;
+                margin-bottom: $gutter-vertical-small;
+            }
+
+        }
+
+        @include respond(tab-portrait) {
+            width: 100% !important;
+        }
+    }
+
+
+
+    // @include clearfix;
+    @include clearfix;
+
+    .col-1-of-2 {
+        width: calc((100% - #{$gutter-horizontal}) / 2);
+    }
+
+    .col-1-of-3 {
+        width: calc((100% - #{$gutter-horizontal * 2}) / 3);
+    }
+
+    .col-2-of-3 {
+        width: calc(2 * ((100% - #{$gutter-horizontal} * 2) / 3) + #{$gutter-horizontal});
+    }
+
+    .col-1-of-4 {
+        width: calc((100% - #{$gutter-horizontal * 3}) / 4);
+    }
+
+    .col-2-of-4 {
+        width: calc(2 * ((100% - #{$gutter-horizontal} * 3) / 4) + #{$gutter-horizontal});
+    }
+
+    .col-3-of-4 {
+        width: calc(3 * ((100% - #{$gutter-horizontal} * 3) / 4) + (2 * #{$gutter-horizontal}));
+    }
+
+
+}
